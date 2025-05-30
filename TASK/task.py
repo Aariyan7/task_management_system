@@ -59,17 +59,6 @@ class Task:
 
 
 
-db = DataBase()
-db.connect()
-
-user = User(db=db)
-user.signup(user_name="nothing4", user_password="nothing123")
-user.login(user_name="nothing4", user_password="nothing123")
-
-task = Task(db=db, user_id=user.user_id)
-task.add_task(task_name="bro1", task_description="bro i just wanted to check that is all bro")
-task.view_tasks()
-
 
 
 
