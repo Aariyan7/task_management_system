@@ -56,6 +56,27 @@ class Task:
             
         except Error as e:
             print("Something went worng while viewing the tasks",e)
+    
+    # Update Task
+    def update_task(self, task_title):
+
+        try:
+            if self.connection.is_connected():
+                upadte_task_query = "UPDATE task SET status = %s WHERE user_id = %s"
+                task_status = "completed"
+
+                self.cursor.execute(upadte_task_query, [task_status, self.user_id])
+
+                self.connection.commit()
+
+                print(f"The Task with Title {task_title} has been Updated sucessfully")
+            
+            else:
+                print("The connection to the data base has been disconnected for some reason")
+        
+        except Error as e:
+            print("Something went wrong while updating the task", e)
+    
 
 
 
