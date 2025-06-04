@@ -33,7 +33,8 @@ while not exit:
             print("Task Options: ")
             print("1. Add a task")
             print("2. View Task")
-            print("3. Exit")
+            print("3. Update task")
+            print("4. Exit")
 
             # Initiazlize the Task Class
             task = Task(db=db, user_id=user.user_id)
@@ -63,10 +64,15 @@ while not exit:
             elif task_option == 2:
                 task.view_tasks()
             
-            # Exit option
+            # Update Option
             elif task_option == 3:
-                task_exit = True
+                task_title = input("Enter the Task Title of an existing Task: ")
+                task.update_task(task_title = task_title)
             
+            # Exit option
+            elif task_option == 4:
+                task_exit = True
+
             else:
                 print("Enter a valid option from above")
       
